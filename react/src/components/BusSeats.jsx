@@ -1,11 +1,12 @@
 import React,{useState,useEffect} from 'react'
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
-const BusSeats = () => {
+import { useNavigate } from 'react-router-dom'
+const BusSeats = ({token}) => {
     const [bus,setBus] = useState(null)
     const [seats,setSeats]=useState([])
-
     const {busId} = useParams()
+    const navigate = useNavigate()
 
     useEffect(()=>{
         const fetchBusDetails = async()=>{
@@ -20,6 +21,33 @@ const BusSeats = () => {
         }
         fetchBusDetails()
     },[busId])
+
+    const handleBook = async(seatId)=>{
+        if(!token){
+            alert("Please Login for Booking seat")
+            navigate('/login')
+            return
+        }
+        try{
+            const response = await axios.post("http://localhost:8000/api/booking/",
+                {seat:seatId},
+                {
+                  headers:{
+                    Authorization:`Token ${token}`
+                  }  
+                }
+            )
+            alert("Booking Successfull!!")
+            setSeats((prevSeats) =>
+            prevSeats.map((seat) =>
+                seat.id === seatId ? { ...seat, is_booked: true } : seat
+            )
+        )
+        }catch(error){
+            alert(error.response?.data?.error || error.message || "Booking Failed")
+        }
+    }
+
   return (
     <div>
         {bus&&(
@@ -35,9 +63,11 @@ const BusSeats = () => {
         <div>
             {seats.map((seat)=>{
                 return(
-                    <button>
-                        Seat Number : {seat.seat_number}
-                    </button>
+                    <div key={seat.id}>
+                        <button onClick={()=>handleBook(seat.id)} style={{color:seat.is_booked?'red':'green'}}>
+                            Seat Number : {seat.seat_number}
+                        </button>
+                    </div>
                 )
             })}
         </div>

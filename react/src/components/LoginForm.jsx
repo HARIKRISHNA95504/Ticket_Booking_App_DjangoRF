@@ -22,7 +22,7 @@ const LoginForm = ({onLogin}) => {
           onLogin(response.data.token,response.data.user_id)
         }
       }catch(error){
-        setMessage('Login Succcess')
+        setMessage('Login Failed')
       }
     }
   return (
