@@ -1,0 +1,47 @@
+/* body{
+    background-image: url('../assets/bus-login.jpg');
+    background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+} */
+/* src/components/BusView.css */
+
+.bus-view-container {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  background: #f7f7f7;
+}
+
+.bus-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.bus-card {
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 16px;
+  border-radius: 8px;
+  width: 300px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.bus-card h2 {
+  margin-top: 0;
+}
+
+.book-btn {
+  margin-top: 10px;
+  padding: 8px 16px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.book-btn:hover {
+  background: #0056b3;
+}
