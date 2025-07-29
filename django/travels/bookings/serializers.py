@@ -17,15 +17,17 @@ class UserRegisterSerializer(serializers.ModelSerializer):
         )
         return user
 
-class BusSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Bus
-        fields = '__all__'
-
 class SeatSerializer(serializers.ModelSerializer):
     class Meta:
         model = Seat
         fields = ['id','seat_number','is_booked']
+
+class BusSerializer(serializers.ModelSerializer):
+    seats = SeatSerializer(many=True,read_only=True)
+    class Meta:
+        model = Bus
+        fields = '__all__'
+
 
 class BookingSerializer(serializers.ModelSerializer):
     bus = serializers.StringRelatedField()
