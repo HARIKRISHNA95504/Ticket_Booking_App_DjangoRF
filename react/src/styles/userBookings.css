@@ -1,0 +1,67 @@
+.booking-section {
+    /* background-image: url('../assets/bus-home.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  padding: 3rem 1.5rem; */
+  background: linear-gradient(
+    to bottom,
+    #5C7B8D 35%,
+   
+    #1E1E1E 100%
+  );;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.section-heading {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #1e293b;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.error-msg,
+.no-bookings-msg {
+  text-align: center;
+  font-size: 1rem;
+  color: #dc2626;
+  margin-top: 1rem;
+}
+
+.booking-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.booking-card {
+  background: white;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s ease;
+}
+
+.booking-card:hover {
+  transform: translateY(-4px);
+}
+
+.booking-bus-name {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #111827;
+  margin-bottom: 0.8rem;
+}
+
+.booking-card p {
+  margin: 0.4rem 0;
+  color: #374151;
+  font-size: 0.95rem;
+}

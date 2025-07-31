@@ -1,0 +1,74 @@
+.bus-seats-page {
+
+      /* background-image: url('../assets/bus-home.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed; */
+  padding: 2rem;
+  min-height: 100vh;
+  background: linear-gradient(
+    to bottom,
+    #5c6e80 0%,
+    #a0b2c4 50%,
+    #3a3a3a 80%,
+    #1a1a1a 100%
+  );
+  color: #f8fafc;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.bus-details-card {
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 1.5rem;
+  border-radius: 1rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+.bus-details-card h2 {
+  margin-bottom: 1rem;
+  color: #ffffff;
+}
+
+.bus-details-card p {
+  margin: 0.3rem 0;
+  color: #e2e8f0;
+  font-size: 0.95rem;
+}
+
+.seats-heading {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #f8fafc;
+}
+
+.seats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  gap: 1rem;
+}
+
+.seat-button {
+  padding: 0.75rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.3s ease;
+  color: white;
+}
+
+.seat-button.available {
+  background-color: #16a34a;
+}
+
+.seat-button.booked {
+  background-color: #dc2626;
+  cursor: not-allowed;
+}
+
+.seat-button:hover:not(:disabled) {
+  transform: scale(1.05);
+  background-color: #15803d;
+}
