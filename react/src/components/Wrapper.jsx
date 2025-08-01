@@ -28,7 +28,7 @@ const Navbar = ({ token, handleLogout }) => {
 
   const logoutAndRedirect = () => {
     handleLogout();
-    navigate('/login');
+    navigate('/home');
   };
 
   return (

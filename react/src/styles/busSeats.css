@@ -1,74 +1,190 @@
 .bus-seats-page {
-
-      /* background-image: url('../assets/bus-home.jpg');
+  max-width: 100%;
+  padding: 1.5rem;
+  margin: auto;
+  box-sizing: border-box;
+  text-align: center;
+  font-family: 'Segoe UI', sans-serif;
+   background-image: url("../assets/bus-home.jpg");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  background-attachment: fixed; */
-  padding: 2rem;
-  min-height: 100vh;
-  background: linear-gradient(
-    to bottom,
-    #5c6e80 0%,
-    #a0b2c4 50%,
-    #3a3a3a 80%,
-    #1a1a1a 100%
-  );
-  color: #f8fafc;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-attachment: fixed;
+  height: 100vh;
 }
 
-.bus-details-card {
-  background-color: rgba(255, 255, 255, 0.05);
+.bus-details-card.modern-ui {
+  border-radius: 10px;
   padding: 1.5rem;
-  border-radius: 1rem;
   margin-bottom: 2rem;
-  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  max-width: 700px;
+  margin-inline: auto;
+  text-align: left;
 }
 
-.bus-details-card h2 {
+.bus-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin-bottom: 1rem;
-  color: #ffffff;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
 
-.bus-details-card p {
-  margin: 0.3rem 0;
-  color: #e2e8f0;
-  font-size: 0.95rem;
+.bus-name h2 {
+  margin: 0;
+  font-size: 1.4rem;
+  color: #333;
 }
+
+.bus-number {
+  font-size: 0.9rem;
+  color: #888;
+}
+
+.bus-meta {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.tag {
+  background-color: #f1f5f9;
+  color: #333;
+  font-size: 0.75rem;
+  padding: 0.4rem 0.7rem;
+  border-radius: 20px;
+}
+
+.route-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px dashed #ddd;
+  padding-top: 1rem;
+  margin-top: 1rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.route-point {
+  display: flex;
+  flex-direction: column;
+  font-size: 1rem;
+}
+
+.time-label {
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.route-divider {
+  font-size: 1.5rem;
+  color: #555;
+}
+
 
 .seats-heading {
+  margin: 1rem 0;
   font-size: 1.5rem;
-  margin-bottom: 1rem;
-  color: #f8fafc;
+  color:#FF6B00;
 }
 
 .seats-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
-  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+  gap: 0.75rem;
+  max-width: 500px;
+  margin-inline: auto;
+  margin-bottom: 1.5rem;
 }
 
 .seat-button {
-  padding: 0.75rem;
+  padding: 0.6rem;
+  font-size: 0.9rem;
   border: none;
-  border-radius: 0.5rem;
-  font-weight: bold;
+  border-radius: 5px;
   cursor: pointer;
-  transition: transform 0.2s ease, background-color 0.3s ease;
-  color: white;
-}
-
-.seat-button.available {
-  background-color: #16a34a;
-}
-
-.seat-button.booked {
-  background-color: #dc2626;
-  cursor: not-allowed;
+  transition: transform 0.2s, background-color 0.3s;
+  white-space: nowrap;
 }
 
 .seat-button:hover:not(:disabled) {
   transform: scale(1.05);
-  background-color: #15803d;
+}
+
+.seat-button.available {
+  background-color: #d4edda;
+  color: #68ab78;
+}
+
+.seat-button.booked {
+  background-color: #f8d7da;
+  color: #721c24;
+  cursor: not-allowed;
+}
+
+.seat-button.selected {
+  background-color: #cce5ff;
+  color: #004085;
+}
+
+.legend {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin: 1rem 0;
+}
+
+.legend span {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.legend .box {
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  border-radius: 3px;
+}
+.legend span{
+  color: white;
+}
+.selected-seat p{
+  color: white;
+}
+
+.confirm-btn {
+  margin-top: 1rem;
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  background-color:#FF6B00;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.confirm-btn:hover {
+  background-color: #d17b3e;
+}
+
+/* Mobile specific tweaks */
+@media (max-width: 480px) {
+  .seats-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+  }
+
+  .seat-button {
+    padding: 0.5rem;
+    font-size: 0.8rem;
+  }
+
+  .bus-details-card {
+    padding: 1rem;
+  }
 }

@@ -48,6 +48,7 @@
 // App.jsx
 import React, { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
+import 'react-toastify/dist/ReactToastify.css';
 
 import LoginForm from './components/LoginForm';
 import RegisterForm from './components/RegisterForm';
